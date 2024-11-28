@@ -22,7 +22,7 @@ jobs:
 
     - name: Validate Rego policy
       run: |
-        opa check policies/require-label.rego
+        opa check policies/require-label.rego 
 
     - name: Test Rego policy
       run: |
