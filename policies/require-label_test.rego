@@ -2,7 +2,7 @@ package kubernetes.admission
 
 import data.kubernetes.admission
 
-# Test when the resource has no "owner" label, expecting a violation.
+# Test when the resource has no "owner" label, expecting a violation
 test_no_label {
     violations := data.kubernetes.admission.violation with input as {
         "review": {
@@ -10,10 +10,11 @@ test_no_label {
         }
     }
     count(violations) == 1
-    violations[0] == "All resources must have an 'owner' label."
+    violations[msg]
+    msg == {"msg": "All resources must have an 'owner' label."}
 }
 
-# Test when the resource has the "owner" label, expecting no violation.
+# Test when the resource has the "owner" label, expecting no violations
 test_with_label {
     violations := data.kubernetes.admission.violation with input as {
         "review": {
@@ -22,4 +23,3 @@ test_with_label {
     }
     count(violations) == 0
 }
-
