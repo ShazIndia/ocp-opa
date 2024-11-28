@@ -1,12 +1,12 @@
 apiVersion: templates.gatekeeper.sh/v1
 kind: ConstraintTemplate
 metadata:
-  name: require-labels
+  name: requirelabels
 spec:
   crd:
     spec:
       names:
-        kind: RequireLabels
+        kind: Requirelabels
   targets:
     - target: admission.k8s.gatekeeper.sh
       rego: |
