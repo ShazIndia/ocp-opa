@@ -26,3 +26,8 @@ jobs:
     - name: Test Rego policy
       run: |
         opa test policies/require-label.rego policies/require-label_test.rego
+
+    - name: Validate the helm chart using conftest
+      uses: YubicoLabs/action-conftest@v3
+      with:
+          files: conftest test helmcharts/templates/deployment.yaml --policy policies/
