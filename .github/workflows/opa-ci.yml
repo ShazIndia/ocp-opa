@@ -30,4 +30,4 @@ jobs:
     - name: Validate the helm chart using conftest
       uses: instrumenta/conftest-action/helm@master
       with:
-        files: helmcharts/templates/deployment.yaml
+        charts: helmcharts
