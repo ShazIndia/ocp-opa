@@ -28,6 +28,6 @@ jobs:
         opa test policies/require-label.rego policies/require-label_test.rego
 
     - name: Validate the helm chart using conftest
-      uses: instrumenta/conftest-action/helm@master
+      uses: YubicoLabs/action-conftest@v3
       with:
-        chart: helmcharts
+          files: helmcharts/templates/deployment.yaml
