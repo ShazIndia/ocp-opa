@@ -30,13 +30,9 @@ jobs:
 
     - name: Download and Install Conftest
       run: |
-        curl -LO https://github.com/open-policy-agent/conftest/releases/latest/download/conftest-linux-amd64
-        if [ "$(head -n 1 conftest-linux-amd64)" = "Not Found" ]; then
-          echo "Error: Failed to download Conftest. Please check the URL or version."
-          exit 1
-        fi
-        chmod +x conftest-linux-amd64
-        sudo mv conftest-linux-amd64 /usr/local/bin/conftest
+        curl -LO https://github.com/open-policy-agent/conftest/releases/download/v0.56.0/conftest_0.56.0_Linux_arm64.tar.gz
+        tar -xzvf conftest.tar.gz
+        sudo mv conftest /usr/local/bin/
         conftest --version
 
 
