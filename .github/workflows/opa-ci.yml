@@ -30,6 +30,8 @@ jobs:
     - name: Install Conftest
       run: |
         curl -LO https://github.com/open-policy-agent/conftest/releases/download/v0.38.1/conftest-linux-amd64
+        file conftest-linux-amd64 
+        head conftest-linux-amd64
         chmod +x conftest-linux-amd64
         sudo mv conftest-linux-amd64 /usr/local/bin/conftest
         conftest --version
