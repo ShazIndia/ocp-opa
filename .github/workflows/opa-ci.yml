@@ -30,4 +30,4 @@ jobs:
     - name: Validate the helm chart using conftest
       uses: YubicoLabs/action-conftest@v3
       with:
-          files: helmcharts/templates/deployment.yaml
+          files: contest test helmcharts/templates/deployment.yaml
