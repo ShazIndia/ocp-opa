@@ -27,7 +27,11 @@ jobs:
       run: |
         opa test policies/require-label.rego policies/require-label_test.rego
 
-    - name: Validate the helm chart using conftest
-      uses: YubicoLabs/action-conftest@v3
-      with:
-          files: conftest test --trace helmcharts/deployment.yaml --policy policies
+    - name: Install Conftest
+      run: |
+        curl -LO https://github.com/open-policy-agent/conftest/releases/download/v0.37.0/conftest-linux-amd64
+        chmod +x conftest-linux-amd64
+        sudo mv conftest-linux-amd64 /usr/local/bin/conftest
+
+    - name: Run Conftest on Helm Charts
+      run: conftest test --trace helmcharts/deployment.yaml --policy policies
