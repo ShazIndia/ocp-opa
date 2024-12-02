@@ -27,14 +27,18 @@ jobs:
       run: |
         opa test policies/require-label.rego policies/require-label_test.rego
 
-    - name: Install Conftest
+
+    - name: Download and Install Conftest
       run: |
-        curl -LO https://github.com/open-policy-agent/conftest/releases/download/v0.38.1/conftest-linux-amd64
-        file conftest-linux-amd64 
-        head conftest-linux-amd64
+        curl -LO https://github.com/open-policy-agent/conftest/releases/latest/download/conftest-linux-amd64
+        if [ "$(head -n 1 conftest-linux-amd64)" = "Not Found" ]; then
+          echo "Error: Failed to download Conftest. Please check the URL or version."
+          exit 1
+        fi
         chmod +x conftest-linux-amd64
         sudo mv conftest-linux-amd64 /usr/local/bin/conftest
         conftest --version
+
 
     - name: conftest version check
       run: conftest --version
