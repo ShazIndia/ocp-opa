@@ -29,9 +29,14 @@ jobs:
 
     - name: Install Conftest
       run: |
-        curl -LO https://github.com/open-policy-agent/conftest/releases/download/v0.37.0/conftest-linux-amd64
-        chmod +x conftest-linux-amd64
-        sudo mv conftest-linux-amd64 /usr/local/bin/conftest
+        curl -L https://github.com/open-policy-agent/conftest/releases/download/v0.38.1/conftest_0.38.1_Linux_x86_64.tar.gz | tar xz
+        sudo mv conftest /usr/local/bin/
+        #curl -LO https://github.com/open-policy-agent/conftest/releases/download/v0.37.0/conftest-linux-amd64
+        #chmod +x conftest-linux-amd64
+        #sudo mv conftest-linux-amd64 /usr/local/bin/conftest
 
+    - name: conftest version check
+      run: conftest --version
+      
     - name: Run Conftest on Helm Charts
       run: conftest test --trace helmcharts/deployment.yaml --policy policies
