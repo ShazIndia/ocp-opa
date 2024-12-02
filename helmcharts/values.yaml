@@ -1,6 +1,0 @@
-# values.yaml
-owner: "team1"
-replicas: 3
-image:
-  repository: nginx
-  tag: "latest"

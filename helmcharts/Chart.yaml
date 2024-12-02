@@ -1,6 +1,6 @@
 apiVersion: v2
 name: OPA Demo
-description: A Helm chart for deploying the sameple app to AKS
+description: A Helm chart for deploying the sameple app to AKS TO Showcase the OPA
 
 # A chart can be either an 'application' or a 'library' chart.
 #
