@@ -40,4 +40,4 @@ jobs:
       run: conftest --version
       
     - name: Run Conftest on Helm Charts
-      run: conftest test --trace helmcharts/deployment.yaml --policy policies
+      run: conftest test ---trace helmcharts/deployment.yaml --policy policies
