@@ -1,4 +1,4 @@
-name: Policy Validation CI
+name: Policy Validation CI Chart
 
 on:
   push:
