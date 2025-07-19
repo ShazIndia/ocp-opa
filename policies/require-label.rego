@@ -1,5 +1,5 @@
 package kubernetes.admission
-
+import rego.v1
 # Default deny rule
 default allow = false
 
