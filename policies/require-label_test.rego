@@ -1,5 +1,5 @@
 package kubernetes.admission
-
+import rego.v1
 import data.kubernetes.admission
 
 # Test when the resource has no "owner" label, expecting a violation
